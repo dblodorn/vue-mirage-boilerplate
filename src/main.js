@@ -19,8 +19,8 @@ WebFont.load({
   },
   custom: {
     families: [
-      'FFF Regular',
-      'FFF Italic'
+      'fff-regular',
+      'fff-italic'
     ],
     urls: ['/assets/fonts.css']
   },

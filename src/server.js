@@ -1,26 +1,43 @@
-import { Server, Model, baseConfig } from 'miragejs'
+import { Server, Model } from 'miragejs'
 
 export function makeServer ({ environment = 'development' } = {}) {
   let server = new Server({
     environment,
     models: {
-      user: Model
+      todos: Model
     },
     seeds (server) {
-      server.create('user', { name: 'Bob' })
-      server.create('user', { name: 'Alice' })
+      server.create('todo', { todo_item: 'Get Up' })
+      server.create('todo', { todo_item: 'Take A Shower' })
+      server.create('todo', { todo_item: 'Go To Work' })
     },
     routes () {
-      // this.urlPrefix = 'http://localhost:8081'
       this.namespace = 'api'
 
-      this.get('/users', schema => {
-        return schema.users.all()
+      this.get('/todos', schema => {
+        return schema.todos.all()
       })
 
-      this.get('/users/:id', (schema, request) => {
+      this.get('/todos/:id', (schema, request) => {
         let id = request.params.id
-        return schema.users.find(id)
+        return schema.todos.find(id)
+      })
+
+      this.post('/todos', (schema, request) => {
+        let todo_item = JSON.parse(request.requestBody).todo_item
+        console.log(request, schema)
+        return schema.todos.create({ todo_item })
+      })
+
+      this.del('/todos/:id', (schema, request) => {
+        let id = request.params.id
+        schema.todos.find(id).destroy()
+      })
+
+      this.patch('/todos/:id', (schema, request) => {
+        let id = request.params.id
+        let newTodo = JSON.parse(request.requestBody).todo_item
+        schema.todos.find(id).update({ todo_item: newTodo })
       })
     }
   })

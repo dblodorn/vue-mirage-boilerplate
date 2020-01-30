@@ -9,6 +9,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "bowser": "^2.4.0",
+    "chroma-js": "^2.1.0",
     "lodash": "^4.17.11",
     "vue": "^2.6.10",
     "vue-router": "^3.0.3",

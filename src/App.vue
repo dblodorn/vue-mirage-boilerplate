@@ -22,7 +22,6 @@ const DEFAULT_TRANSITION = 'fade'
 
 const Main = styled.main`
   width: 100%;
-  padding: 2rem;
 `
 
 export default {
