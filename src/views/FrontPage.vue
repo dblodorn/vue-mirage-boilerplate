@@ -9,6 +9,9 @@
         </button>
       </form>
     </div>
+    <TitleWrapper>
+      <H1>TODOS:</H1>
+    </TitleWrapper>
     <transition-group name="list" tag="ul">
       <ToDo
         v-for="item in todo_items"
@@ -27,6 +30,22 @@ import { colors, shared, spacing } from '@/styles/theme'
 import * as _ from '@/styles/mixins'
 import ToDo from './ToDo'
 import axios from 'axios'
+
+const TitleWrapper = styled.div`
+  display: flex;
+  height: ${shared.nav_height};
+  align-items: center;
+  padding: 0 ${spacing.single_pad};
+  width: 100%;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: row;
+  background-color: #fa2b00;
+  * {
+    color: ${colors.white};
+  }
+`
 
 const PageWrapper = styled.div`
   width: 100%;
@@ -62,7 +81,8 @@ export default {
   components: {
     H1,
     PageWrapper,
-    ToDo
+    ToDo,
+    TitleWrapper
   },
   data () {
     return {
