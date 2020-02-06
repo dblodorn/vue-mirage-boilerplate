@@ -25,7 +25,6 @@ export function makeServer ({ environment = 'development' } = {}) {
 
       this.post('/todos', (schema, request) => {
         let todo_item = JSON.parse(request.requestBody).todo_item
-        console.log(request, schema)
         return schema.todos.create({ todo_item })
       })
 

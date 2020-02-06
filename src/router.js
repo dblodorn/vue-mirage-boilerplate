@@ -9,8 +9,8 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'front-page',
-      component: () => import(/* webpackChunkName: "FRONT_PAGE" */ './views/FrontPage.vue'),
+      name: 'todo-form',
+      component: () => import(/* webpackChunkName: "TODO-FORM" */ './views/TodoForm.vue'),
       meta: {
         transitionName: 'fade'
       }
