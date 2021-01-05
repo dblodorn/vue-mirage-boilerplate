@@ -7,7 +7,7 @@
     "build": "webpack --progress --config=webpack/webpack.prod.js --mode production --env.NODE_ENV"
   },
   "dependencies": {
-    "axios": "^0.19.2",
+    "axios": "^0.21.1",
     "bowser": "^2.4.0",
     "chroma-js": "^2.1.0",
     "lodash": "^4.17.11",
